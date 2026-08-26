@@ -16,6 +16,101 @@
   <title>Ashwini Kumar | Software Learning with AI</title>
   <link rel="stylesheet" href="style.css">
 </head>
+  <!-- Ashwini AI Extra Sections Start -->
+
+<section id="features" style="padding:60px 20px; text-align:center; background:#f5f7ff;">
+  <h2 style="font-size:32px; color:#333;">✨ Ashwini AI Features</h2>
+  <p style="color:#666; margin-bottom:30px;">
+    Learn, create and explore with the power of Artificial Intelligence.
+  </p>
+
+  <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:20px;">
+
+    <div style="background:white; padding:25px; border-radius:15px; width:250px; box-shadow:0 5px 15px rgba(0,0,0,0.1);">
+      <h3>🤖 Smart AI</h3>
+      <p>Ask questions and get helpful answers instantly.</p>
+    </div>
+
+    <div style="background:white; padding:25px; border-radius:15px; width:250px; box-shadow:0 5px 15px rgba(0,0,0,0.1);">
+      <h3>📚 Learn Faster</h3>
+      <p>Get help with coding, AI, English and many subjects.</p>
+    </div>
+
+    <div style="background:white; padding:25px; border-radius:15px; width:250px; box-shadow:0 5px 15px rgba(0,0,0,0.1);">
+      <h3>💡 Smart Ideas</h3>
+      <p>Generate creative ideas for projects and hackathons.</p>
+    </div>
+
+  </div>
+</section>
+
+
+<section id="about" style="padding:60px 20px; text-align:center; background:white;">
+  <h2 style="font-size:32px; color:#333;">About Ashwini AI 🤖</h2>
+
+  <p style="max-width:700px; margin:20px auto; font-size:17px; line-height:1.7; color:#555;">
+    Ashwini AI is a smart Artificial Intelligence platform created to
+    help students and users learn new things, solve problems, explore
+    technology and generate creative ideas.
+  </p>
+
+  <p style="max-width:700px; margin:auto; font-size:17px; color:#555;">
+    Our mission is to make Artificial Intelligence simple and useful for everyone.
+  </p>
+</section>
+
+
+<section id="ai-chat" style="padding:60px 20px; text-align:center; background:#eef2ff;">
+  <h2 style="font-size:32px; color:#333;">💬 Try Ashwini AI</h2>
+
+  <p style="color:#666; margin:15px;">
+    Ask your question below and start exploring AI.
+  </p>
+
+  <input
+    type="text"
+    id="userQuestion"
+    placeholder="Ask Ashwini AI something..."
+    style="width:80%; max-width:500px; padding:15px; border:1px solid #ccc; border-radius:10px; font-size:16px;"
+  >
+
+  <br><br>
+
+  <button
+    onclick="askAshwiniAI()"
+    style="padding:13px 30px; background:#4f46e5; color:white; border:none; border-radius:10px; font-size:16px; cursor:pointer;"
+  >
+    Ask AI 🤖
+  </button>
+
+  <p id="aiAnswer" style="max-width:600px; margin:25px auto; font-size:17px; color:#333;"></p>
+</section>
+
+
+<section id="contact" style="padding:50px 20px; text-align:center; background:#222; color:white;">
+  <h2>📩 Contact Ashwini AI</h2>
+
+  <p style="margin-top:15px;">
+    Have questions, ideas or feedback? We would love to hear from you!
+  </p>
+</section>
+
+
+<script>
+  function askAshwiniAI() {
+    let question = document.getElementById("userQuestion").value;
+    let answer = document.getElementById("aiAnswer");
+
+    if (question === "") {
+      answer.innerHTML = "Please enter a question first 🙂";
+    } else {
+      answer.innerHTML =
+        "🤖 Ashwini AI: Thanks for your question! Our smart AI chat feature will be available soon.";
+    }
+  }
+</script>
+
+<!-- Ashwini AI Extra Sections End -->
 <body>
 
   <!-- Navbar -->
