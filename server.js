@@ -27,10 +27,9 @@ app.post("/ask", async (req, res) => {
   } catch (error) {
     console.error(error);
     res.status(500).json({
-      error: "AI response nahi aa raha"
-    });
-  }
+  error: error.message
 });
+  }
 app.get("/", (req, res) => {
   res.send("Ashwini AI Backend is running ✅");
 });
