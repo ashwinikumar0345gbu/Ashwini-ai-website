@@ -11,9 +11,28 @@ const client = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY
 });
 
+app.get("/", (req, res) => {
+  res.send("Ashwini AI Backend is running ✅");
+});
+
+app.get("/test", (req, res) => {
+  res.json({
+    status: "OK",
+    message: "Ashwini AI backend is working"
+  });
+});
+
 app.post("/ask", async (req, res) => {
-  try {console.log("ASK REQUEST:", req.body);
+  try {
+    console.log("ASK REQUEST:", req.body);
+
     const question = req.body.question;
+
+    if (!question) {
+      return res.status(400).json({
+        error: "Question is required"
+      });
+    }
 
     const response = await client.responses.create({
       model: "gpt-5-mini",
@@ -25,24 +44,14 @@ app.post("/ask", async (req, res) => {
     });
 
   } catch (error) {
-    console.error(error);
+    console.error("OPENAI ERROR:", error);
+
     res.status(500).json({
-  error: error.message
-});
+      error: error.message
+    });
   }
-app.get("/", (req, res) => {
-  res.send("Ashwini AI Backend is running ✅");
-});
-app.get("/test", (req, res) => {
-  res.json({
-    status: "OK",
-    message: "Ashwini AI backend is working"
-  });
 });
 
-app.listen(process.env.PORT || 3000, () => {
-  console.log("Ashwini AI server started");
-});
 app.listen(process.env.PORT || 3000, () => {
   console.log("Ashwini AI server started");
 });
