@@ -1,13 +1,36 @@
-function projectMessage() {
+<script>
+async function askAshwiniAI() {
+  const question = document.getElementById("userQuestion").value.trim();
+  const answer = document.getElementById("aiAnswer");
 
-  const message = document.getElementById("message");
+  if (!question) {
+    answer.innerText = "Please enter a question first 🙂";
+    return;
+  }
 
-  message.innerText = "🚀 Project details coming soon!";
+  answer.innerText = "🤖 Ashwini AI is thinking...";
 
-  message.style.display = "block";
+  try {
+    const response = await fetch("https://ashwini-ai-website.onrender.com/api/chat", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        message: question
+      })
+    });
 
-  setTimeout(function () {
-    message.style.display = "none";
-  }, 2500);
+    const data = await response.json();
 
+    if (!response.ok) {
+      throw new Error(data.error || "Server error");
+    }
+
+    answer.innerText = "🤖 Ashwini AI: " + (data.reply || data.message || "No answer received.");
+  } catch (error) {
+    console.error(error);
+    answer.innerText = "❌ AI connection error. Please try again.";
+  }
 }
+</script>
