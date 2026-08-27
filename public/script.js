@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         try {
             // 3. बैकएंड एक्सप्रेस सर्वर (/api/ask) को सवाल भेजना
-            const response = await fetch('/ask', {
+            const response = await fetch('https://ashwini-ai-website.onrender.com/ask', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
