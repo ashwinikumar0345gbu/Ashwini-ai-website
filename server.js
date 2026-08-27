@@ -34,13 +34,16 @@ app.post("/ask", async (req, res) => {
 app.get("/", (req, res) => {
   res.send("Ashwini AI Backend is running ✅");
 });
-
-app.listen(process.env.PORT || 3000, () => {
-  console.log("Ashwini AI server started");
-});
 app.get("/test", (req, res) => {
   res.json({
     status: "OK",
     message: "Ashwini AI backend is working"
   });
+});
+
+app.listen(process.env.PORT || 3000, () => {
+  console.log("Ashwini AI server started");
+});
+app.listen(process.env.PORT || 3000, () => {
+  console.log("Ashwini AI server started");
 });
