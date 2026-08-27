@@ -12,7 +12,7 @@ const client = new OpenAI({
 });
 
 app.post("/ask", async (req, res) => {
-  try {
+  try {console.log("ASK REQUEST:", req.body);
     const question = req.body.question;
 
     const response = await client.responses.create({
