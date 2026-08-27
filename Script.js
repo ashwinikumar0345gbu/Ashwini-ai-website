@@ -33,5 +33,5 @@ async function askAshwiniAI() {
     answer.innerText = "❌ AI connection error. Please try again.";
   }
 }
-
+console.log("ASHWINI AI SCRIPT LOADED");
 
