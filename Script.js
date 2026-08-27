@@ -1,4 +1,4 @@
-<script>
+
 async function askAshwiniAI() {
   const question = document.getElementById("userQuestion").value.trim();
   const answer = document.getElementById("aiAnswer");
@@ -33,5 +33,5 @@ async function askAshwiniAI() {
     answer.innerText = "❌ AI connection error. Please try again.";
   }
 }
-</script>
+
 
