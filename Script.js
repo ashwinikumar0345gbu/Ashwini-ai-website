@@ -1,37 +1,28 @@
 
-async function askAshwiniAI() {
-  const question = document.getElementById("userQuestion").value.trim();
-  const answer = document.getElementById("aiAnswer");
-
-  if (!question) {
-    answer.innerText = "Please enter a question first 🙂";
-    return;
-  }
-
-  answer.innerText = "🤖 Ashwini AI is thinking...";
-
+app.post("/ask", async (req, res) => {
   try {
-    const response = await fetch("https://ashwini-ai-website.onrender.com/ask", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        question: question
-      })
-    });
+    const question = req.body.question;
 
-    const data = await response.json();
-
-    if (!response.ok) {
-      throw new Error(data.error || "Server error");
+    if (!question) {
+      return res.status(400).json({
+        error: "Question is required"
+      });
     }
 
-    answer.innerText = "🤖 Ashwini AI: " + data.answer;
-  } catch (error) {
-  console.error(error);
-  answer.innerText = "❌ " + error.message;
-  }
-}
-console.log("ASHWINI AI SCRIPT LOADED");
+    const response = await client.responses.create({
+      model: "gpt-5-mini",
+      input: question
+    });
 
+    res.json({
+      answer: response.output_text
+    });
+
+  } catch (error) {
+    console.error("OPENAI ERROR:", error);
+
+    res.status(500).json({
+      error: error.message || "OpenAI request failed"
+    });
+  }
+});
