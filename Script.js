@@ -29,8 +29,8 @@ async function askAshwiniAI() {
 
     answer.innerText = "🤖 Ashwini AI: " + data.answer;
   } catch (error) {
-    console.error(error);
-    answer.innerText = "❌ AI connection error. Please try again.";
+  console.error(error);
+  answer.innerText = "❌ " + error.message;
   }
 }
 console.log("ASHWINI AI SCRIPT LOADED");
