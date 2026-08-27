@@ -38,3 +38,9 @@ app.get("/", (req, res) => {
 app.listen(process.env.PORT || 3000, () => {
   console.log("Ashwini AI server started");
 });
+app.get("/test", (req, res) => {
+  res.json({
+    status: "OK",
+    message: "Ashwini AI backend is working"
+  });
+});
