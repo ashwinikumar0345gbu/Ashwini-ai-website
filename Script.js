@@ -11,13 +11,13 @@ async function askAshwiniAI() {
   answer.innerText = "🤖 Ashwini AI is thinking...";
 
   try {
-    const response = await fetch("https://ashwini-ai-website.onrender.com/api/chat", {
+    const response = await fetch("https://ashwini-ai-website.onrender.com/ask", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        message: question
+        question: question
       })
     });
 
@@ -27,10 +27,11 @@ async function askAshwiniAI() {
       throw new Error(data.error || "Server error");
     }
 
-    answer.innerText = "🤖 Ashwini AI: " + (data.reply || data.message || "No answer received.");
+    answer.innerText = "🤖 Ashwini AI: " + data.answer;
   } catch (error) {
     console.error(error);
     answer.innerText = "❌ AI connection error. Please try again.";
   }
 }
 </script>
+
